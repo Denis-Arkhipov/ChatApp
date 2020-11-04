@@ -15,7 +15,7 @@ public final class OracleConnectionFactory {
     
     private static final Logger logger = Logger.getLogger(
 	    OracleConnectionFactory.class);
-    private static final String JNDI_NAME = "java:comp/env/jdbc/MyDB";
+    private static final String JNDI_NAME = "java:comp/env/jdbc/xe";
     
     private OracleConnectionFactory() {
 	throw new UnsupportedOperationException();
