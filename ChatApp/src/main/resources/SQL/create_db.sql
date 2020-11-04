@@ -1,0 +1,54 @@
+CREATE TABLE Message (
+    ID INT NOT NULL PRIMARY KEY,
+    User_from VARCHAR2(100) NOT NULL,
+    Message VARCHAR2(2000),
+    Date_ NUMBER,
+    Status INT,
+    FOREIGN KEY (User_from) REFERENCES Users(Nick),
+    FOREIGN KEY (Status) REFERENCES Status(ID)
+);
+
+CREATE SEQUENCE Message_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE;
+
+CREATE OR REPLACE TRIGGER Message_tr
+BEFORE INSERT ON Message
+FOR EACH ROW
+BEGIN
+
+    IF (:NEW.ID IS NULL) THEN
+    SELECT Message_seq.nextval
+    INTO :NEW.ID
+    FROM dual;
+
+END IF;
+END;
+
+
+CREATE TABLE Users (
+    Nick VARCHAR2(100) NOT NULL PRIMARY KEY,
+    Password VARCHAR2(100) NOT NULL,
+    Email VARCHAR2(100) NOT NULL,
+    Phone INT NOT NULL,
+    Photo VARCHAR2(100)
+);
+
+CREATE TABLE Status (
+    ID INT NOT NULL PRIMARY KEY,
+    Title VARCHAR2(100),
+    Description VARCHAR2(1000)
+);
+
+
+CREATE SEQUENCE Status_seq
+START WITH 1
+INCREMENT BY 1
+NOMAXVALUE;
+
+
+
+
+
+

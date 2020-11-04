@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style/Style.css">
+	<title>Online Chat</title>
+</head>
+<body>
+	<main class="loginWindow">
+		<header>
+			<div id="back" class="hideBlock">  Go out </div>			
+
+			<div id="logo">	Online Chat	</div>
+				
+			<ul id="userInfo" class="userInfo hideBlock">
+				<li id="username"> <!-- Username --> </li>
+				<li id="email">Email: <span> <!-- Email --> </span></li>
+				<li id="phone">Phone: <span> <!-- Phone --> </span></li>
+				<li id="photo"><img src="" alt="Photo" title="Avatar 100x100"> <!-- Photo --> </li>
+			</ul>
+			
+		</header>		
+		<div class="error"></div>
+
+<!-- Login -->
+		<section id="window_login">			
+			<form class="form loginForm" name="formLogin" onsubmit="return false;">
+				<input type="text" name="login" placeholder="Username or E-mail">
+				<input type="password" name="password" placeholder="Password" minlength="3" autocomplete="off">
+
+				<button type="submit" name="buttonLogin">Login</button>
+				<button type="submit" name="buttonRegistration">Registration</button>
+			</form>			
+		</section>
+<!-- End Login -->
+
+<!-- Registration -->
+		<section id="window_reg" hidden>							
+			<form class="form registrationForm" name="formReg" enctype='multipart/form-data' onsubmit="return false;"> <!-- hidden="true" -->
+				<input type="text" name="loginReg" placeholder="Username">				
+				<input type="email" name="Email" placeholder="E-mail">
+				<input type="text" name="phone" placeholder="Phone">
+				<input type="password" name="passwordReg" placeholder="Password" minlength="3" autocomplete="off">
+				<input type="file" name="photo" accept="image/*">
+				
+				<button type="submit" name="buttonRegLogin">Login</button>
+				<button class="butReg" type="submit" name="sendRegistration">Registration</button>
+			</form>				
+		</section>
+<!-- End Registration -->
+
+<!-- Chat -->
+		<section id="chat" hidden>
+			<div id="wrapperChat" class="chatStyle">
+				<div class="messages"></div>
+
+				<div class="people">
+					<ul class="person"></ul>
+				</div>
+				
+				<form class="formChat" name="formChat" onsubmit="return false;">
+					<input type="hidden" name="csrf" value="">
+					<input class="textField" type="text" name="fieldTextMessage" placeholder="Write a message..." autocomplete="off">
+					<button class="butChat" type="submit" name="buttonSendMessage">Send</button>
+				</form>
+			</div>
+			
+		</section>
+<!-- End Chat -->				
+	</main>
+ 
+<script src="js/Beans.js"></script>
+<script src="js/Utility.js"></script>
+<script src="js/Chat.js"></script>
+<script src="js/Registration.js"></script>  
+<script src="js/Login.js"></script>
+
+</body>
+</html>
